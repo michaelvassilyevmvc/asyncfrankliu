@@ -9,13 +9,25 @@ public partial class Form1 : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        Thread.Sleep(2000);
-        lblMessage.Text = "First Message";
+        Thread thread = new Thread(() =>
+        {
+            ShowMessage("First Message", 2000);
+        });
+        thread.Start();
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-        Thread.Sleep(3000);
-        lblMessage.Text = "Second Message";
+        Thread tread = new Thread(() =>
+        {
+            ShowMessage("Second Message", 3000);
+        });
+        tread.Start();
+    }
+    
+    void ShowMessage(string message, int delay)
+    {
+        Thread.Sleep(delay);
+        lblMessage.Text = message;
     }
 }
