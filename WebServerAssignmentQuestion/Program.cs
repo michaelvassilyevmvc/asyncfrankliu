@@ -1,10 +1,12 @@
 ﻿Queue<string?> requestQueue = new Queue<string?>();
+int availableTickets = 10;
+object ticketsLock = new object();
 
 // 2. Start the requests queue monitoring thread
 Thread monitorThread = new Thread(MonitorQueue);
 monitorThread.Start();
 
-Console.WriteLine("Server is running. Type 'exit' to stop.");
+Console.WriteLine("Server is running. \r\n Type 'b' to book a ticket. \r\n Type 'c' to cancel.\r\n Type 'exit' to stop.");
 while (true)
 {
     string? input = Console.ReadLine();
@@ -22,7 +24,7 @@ void MonitorQueue()
         if (requestQueue.Count > 0)
         {
             string? input = requestQueue.Dequeue();
-            Thread processingThread = new Thread(() => ProcessInput(input));
+            Thread processingThread = new Thread(() => ProcessBooking(input));
             processingThread.Start();
         }
         Thread.Sleep(100);
@@ -32,8 +34,36 @@ void MonitorQueue()
 }
 
 // 3. Processing the request
-void ProcessInput(string input)
+void ProcessBooking(string input)
 {
     Thread.Sleep(2000);
-    Console.WriteLine($"Processed input: {input}");
+    lock (ticketsLock)
+    {
+        if (input == "b")
+        {
+            if (availableTickets > 0)
+            {
+                availableTickets--;
+                Console.WriteLine();
+                Console.WriteLine($"Your seat is booked. {availableTickets} seats are still available.");
+            }
+            else
+            {
+                Console.WriteLine("Tickets are not available.");
+            }
+        }
+        else if (input == "c")
+        {
+            if (availableTickets < 10)
+            {
+                availableTickets++;
+                Console.WriteLine();
+                Console.WriteLine($"Your booking is caceled. {availableTickets} seats are available.");
+            }
+            else
+            {
+                Console.WriteLine($"Error. You cannot cancel a booking at this time.");
+            }
+        }
+    }
 }
