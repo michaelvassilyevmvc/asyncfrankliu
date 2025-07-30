@@ -1,4 +1,5 @@
 ﻿int counter = 0;
+Object counterLock = new Object();
 Thread thread1 = new Thread(IncrementCounter);
 Thread thread2 = new Thread(IncrementCounter);
 
@@ -14,7 +15,7 @@ void IncrementCounter()
 {
     for (int i = 0; i < 100000; i++)
     {
-        var tmp = counter;
-        counter = tmp + 1;
+        lock (counterLock)
+            counter = counter + 1;
     }
 }
