@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffloadApp", "OffloadApp\Of
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServerAssignmentQuestion", "WebServerAssignmentQuestion\WebServerAssignmentQuestion.csproj", "{53B9DE6D-B3A8-42B6-97B5-2418D504F167}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronizationOverview", "SynchronizationOverview\SynchronizationOverview.csproj", "{4D75603B-4F5D-433B-805F-7F297428A363}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{53B9DE6D-B3A8-42B6-97B5-2418D504F167}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53B9DE6D-B3A8-42B6-97B5-2418D504F167}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53B9DE6D-B3A8-42B6-97B5-2418D504F167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D75603B-4F5D-433B-805F-7F297428A363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D75603B-4F5D-433B-805F-7F297428A363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D75603B-4F5D-433B-805F-7F297428A363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D75603B-4F5D-433B-805F-7F297428A363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
