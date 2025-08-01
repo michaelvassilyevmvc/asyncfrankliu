@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServerAssignmentQuestion
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronizationOverview", "SynchronizationOverview\SynchronizationOverview.csproj", "{4D75603B-4F5D-433B-805F-7F297428A363}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalMutexExample", "GlobalMutexExample\GlobalMutexExample.csproj", "{EB30F7A7-9240-42EC-A036-91DF162F352F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{4D75603B-4F5D-433B-805F-7F297428A363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D75603B-4F5D-433B-805F-7F297428A363}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D75603B-4F5D-433B-805F-7F297428A363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB30F7A7-9240-42EC-A036-91DF162F352F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB30F7A7-9240-42EC-A036-91DF162F352F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB30F7A7-9240-42EC-A036-91DF162F352F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB30F7A7-9240-42EC-A036-91DF162F352F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
