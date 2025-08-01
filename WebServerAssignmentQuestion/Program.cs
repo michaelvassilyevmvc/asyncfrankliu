@@ -36,34 +36,47 @@ void MonitorQueue()
 // 3. Processing the request
 void ProcessBooking(string input)
 {
-    Thread.Sleep(2000);
-    lock (ticketsLock)
+    if (Monitor.TryEnter(ticketsLock, 2000))
     {
-        if (input == "b")
+
+        try
         {
-            if (availableTickets > 0)
+            Thread.Sleep(3000);
+
+            if (input == "b")
             {
-                availableTickets--;
-                Console.WriteLine();
-                Console.WriteLine($"Your seat is booked. {availableTickets} seats are still available.");
+                if (availableTickets > 0)
+                {
+                    availableTickets--;
+                    Console.WriteLine();
+                    Console.WriteLine($"Your seat is booked. {availableTickets} seats are still available.");
+                }
+                else
+                {
+                    Console.WriteLine("Tickets are not available.");
+                }
             }
-            else
+            else if (input == "c")
             {
-                Console.WriteLine("Tickets are not available.");
+                if (availableTickets < 10)
+                {
+                    availableTickets++;
+                    Console.WriteLine();
+                    Console.WriteLine($"Your booking is caceled. {availableTickets} seats are available.");
+                }
+                else
+                {
+                    Console.WriteLine($"Error. You cannot cancel a booking at this time.");
+                }
             }
         }
-        else if (input == "c")
+        finally
         {
-            if (availableTickets < 10)
-            {
-                availableTickets++;
-                Console.WriteLine();
-                Console.WriteLine($"Your booking is caceled. {availableTickets} seats are available.");
-            }
-            else
-            {
-                Console.WriteLine($"Error. You cannot cancel a booking at this time.");
-            }
+            Monitor.Exit(ticketsLock);
         }
+    }
+    else
+    {
+        Console.WriteLine("System is busy. Please wait");
     }
 }
